@@ -1,6 +1,8 @@
 [
-    { "id": 1, "name": "Avo", "age": 21 },
-    { "id": 2, "name": "Narek", "age": 31 },
-    { "id": 3, "name": "Hovo", "age": 20 },
-    { "id": 4, "name": "Arman", "age": 19 }
+    { "id": 1, "name": "Avo", "age": 21, "gender": "male" },
+    { "id": 2, "name": "Arman", "age": 20, "gender": "male" },
+    { "id": 3, "name": "Hovo", "age": 19, "gender": "male" },
+    { "id": 4, "name": "Narek", "age": 31, "gender": "male" },
+    { "id": 5, "name": "Lilit", "age": 26, "gender": "female" },
+    { "id": 6, "name": "Anjela", "age": 34, "gender": "female" }
 ]
