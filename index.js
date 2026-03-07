@@ -108,15 +108,3 @@ http.createServer(async (request, response) => {
 }).listen(port, (err) => {
     console.log(err ? err : `Server is connected in ${port} port`);
 });
-
-fetch("http://localhost:3000/api/users", {
-    method: "POST",
-    headers: {
-        "content-type": "application/json"
-    },
-    body: JSON.stringify({
-        name: "qristik",
-        age: 36,
-         gender: "female"
-    })
-}).then(res => res.json()).then(res => console.log(res)).catch(err => console.log(err));
