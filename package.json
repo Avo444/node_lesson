@@ -1,0 +1,26 @@
+{
+  "name": "exp",
+  "version": "1.0.0",
+  "description": "First express lesson",
+  "homepage": "https://github.com/Avo444/node_lesson#readme",
+  "bugs": {
+    "url": "https://github.com/Avo444/node_lesson/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Avo444/node_lesson.git"
+  },
+  "license": "ISC",
+  "author": "",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon index.js"
+  },
+  "dependencies": {
+    "express": "^5.2.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.14"
+  }
+}
