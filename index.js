@@ -1,45 +1,48 @@
+const {
+    postUserMiddleware,
+    putUsersMiddleware,
+    patchUserMiddleware,
+    getUserByIdMiddleware,
+    getQueriesOperationMiddleware,
+    deleteUserMiddleware,
+} = require("./middleware/middleware");
+const { sendResponse } = require("./helper/helper");
+
 const express = require("express");
 const app = express();
-const PORT = 3000;
-const {
-    fileRead,
-    userFinder,
-    createPath,
-    sendResponse,
-    getUsersData
-} = require("./helper/helper");
 
-app.get("/", async (request, response) => {
-    try {
-        const data = await fileRead(createPath("pages", "index.html"));
-        sendResponse(response, data, 200, "text/html");
-    } catch (err) {
-        const error = JSON.stringify({ error: err.message });
-        sendResponse(response, error, 404, "application/json");
-    }
+app.use(express.json());
+
+app.get("/", async (req, res) => {
+    const data = "<h1>Hello</h1>";
+    sendResponse(res, data, 200, "text/html");
 });
 
-app.get("/api/users", async (request, response) => {
-    try {
-        const data = await getUsersData(request.query);
-        sendResponse(response, data);
-    } catch (err) {
-        const error = JSON.stringify({ error: err.message });
-        sendResponse(response, error, 404, "application/json");
-    }
+app.get("/api/users", getQueriesOperationMiddleware, async (req, res) => {
+    sendResponse(res, res.locals.users);
 });
 
-app.get("/api/users/:id", async (request, response) => {
-    try {
-        const user = await userFinder(request);
-        sendResponse(response, user)
-    } catch (err) {
-        const error = JSON.stringify({ error: err.message });
-        sendResponse(response, error, 404, "application/json");
-    }
+app.get("/api/users/:id", getUserByIdMiddleware, async (req, res) => {
+    sendResponse(res, res.locals.user);
+});
+
+app.post("/api/users", postUserMiddleware, async (req, res) => {
+    sendResponse(res, res.locals.newUser)
+});
+
+app.put("/api/users", putUsersMiddleware, async (req, res) => {
+    sendResponse(res, res.locals.data)
+});
+
+app.patch("/api/users/:id", patchUserMiddleware, async (req, res) => {
+    sendResponse(res, res.locals.user)
 });
 
 
-app.listen(PORT, (err) => {
-    console.log(err ? err : `Server is connected in ${PORT} port`);
+app.delete("/api/users/:id", deleteUserMiddleware, async (req, res) => {
+    sendResponse(res, res.locals.users)
+});
+
+app.listen(3000, (err) => {
+    console.log(err ? err : "Server is running");
 });
