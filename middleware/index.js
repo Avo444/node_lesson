@@ -1,9 +1,5 @@
-const postUserMiddleware = require("./postUserMiddleware");
-const putUsersMiddleware = require("./putUsersMiddleware");
-const patchUserMiddleware = require("./patchUserMiddleware");
+const loginMiddleware = require("./loginMiddleware");
+const registerMiddleware = require("./registerMiddleware");
 
-module.exports = {
-    postUserMiddleware,
-    putUsersMiddleware,
-    patchUserMiddleware,
-};
+
+module.exports = { loginMiddleware, registerMiddleware };

@@ -1,43 +1,49 @@
 const path = require("path");
 const fs = require("fs").promises;
 
-const fileRead = async (path) => await fs.readFile(path, "utf-8");
-
 const createPath = (...arr) => path.join(path.resolve(), ...arr);
 
 const database = async () =>
-    JSON.parse(await fileRead(createPath("db", "users.json")));
+    JSON.parse(await readFile(createPath("db", "users.json")));
 
 const updateDatabase = async (data) =>
     await fs.writeFile(createPath("db", "users.json"), JSON.stringify(data));
 
-const captializeName = (name) => {
+const readFile = async (path) => {
+    try {
+        const file = await fs.readFile(path, "utf-8");
+        return file;
+    } catch (error) {
+        return error.message;
+    }
+};
+
+const capitalizeName = (name) => {
     const trim = name.trim();
-    const firstUpper = trim[0].toUpperCase();
-    const slice = trim.slice(1);
-    return firstUpper + slice;
+    const first = trim[0].toUpperCase();
+    return first + trim.slice(1);
 };
 
 const sendResponse = (
     response,
     data,
-    status = 200,
+    statusCode = 200,
     extension = "application/json",
 ) => {
     response.set({
         "content-type": extension,
     });
-    response.status(status);
+    response.status(statusCode);
     extension === "application/json"
         ? response.json(data)
         : response.send(data);
 };
 
 module.exports = {
-    sendResponse,
-    fileRead,
-    createPath,
+    readFile,
     database,
+    createPath,
+    sendResponse,
+    capitalizeName,
     updateDatabase,
-    captializeName,
 };

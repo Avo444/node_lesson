@@ -1,28 +1,29 @@
 {
-    "name": "node-js-homework's",
-    "version": "1.0.0",
-    "description": "",
-    "main": "index.js",
-    "scripts": {
-        "dev": "nodemon index.js",
-        "test": "echo \"Error: no test specified\" && exit 1"
-    },
-    "repository": {
-        "type": "git",
-        "url": "git+https://github.com/Avo444/node_lesson.git"
-    },
-    "keywords": [],
-    "author": "",
-    "license": "ISC",
-    "type": "commonjs",
-    "bugs": {
-        "url": "https://github.com/Avo444/node_lesson/issues"
-    },
-    "homepage": "https://github.com/Avo444/node_lesson#readme",
-    "dependencies": {
-        "express": "^5.2.1"
-    },
-    "devDependencies": {
-        "nodemon": "^3.1.14"
-    }
+  "name": "node-js-homework's",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Avo444/node_lesson.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/Avo444/node_lesson/issues"
+  },
+  "homepage": "https://github.com/Avo444/node_lesson#readme",
+  "dependencies": {
+    "express": "^5.2.1",
+    "joi": "^18.0.2"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.14"
+  }
 }

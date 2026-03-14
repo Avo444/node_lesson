@@ -1,6 +1,50 @@
 [
-    { "id": 1, "name": "Avo", "age": 21, "gender": "male" },
-    { "id": 2, "name": "Narek", "age": 31, "gender": "male" },
-    { "id": 3, "name": "Anna", "age": 24, "gender": "female" },
-    { "id": 4, "name": "Ani", "age": 25, "gender": "female" }
+    {
+        "id": 1,
+        "name": "Avo",
+        "age": 21,
+        "gender": "male",
+        "login": "avetiq",
+        "password": "123123123"
+    },
+    {
+        "id": 2,
+        "name": "Narek",
+        "age": 31,
+        "gender": "male",
+        "login": "narek",
+        "password": "123123123"
+    },
+    {
+        "id": 4,
+        "name": "Arman",
+        "age": 20,
+        "gender": "male",
+        "login": "arman",
+        "password": "123123123"
+    },
+    {
+        "id": 5,
+        "name": "Hovo",
+        "age": 19,
+        "gender": "male",
+        "login": "hovo",
+        "password": "123123123"
+    },
+    {
+        "id": 6,
+        "name": "Elen",
+        "age": 21,
+        "gender": "female",
+        "login": "elen",
+        "password": "123123123"
+    },
+    {
+        "id": 7,
+        "name": "Milena",
+        "age": 24,
+        "gender": "female",
+        "login": "milena",
+        "password": "123123123"
+    }
 ]
