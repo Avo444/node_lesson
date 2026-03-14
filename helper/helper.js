@@ -9,7 +9,15 @@ const database = async () =>
     JSON.parse(await fileRead(createPath("db", "users.json")));
 
 const updateDatabase = async (data) =>
-    await fs.writeFile(createPath("db", "users.json"), JSON.stringify(data),);
+    await fs.writeFile(createPath("db", "users.json"), JSON.stringify(data));
+
+const captializeName = (name) => {
+    const trim = name.trim();
+    const firstUpper = trim[0].toUpperCase();
+    const slice = trim.slice(1);
+    return firstUpper + slice;
+};
+
 const sendResponse = (
     response,
     data,
@@ -31,4 +39,5 @@ module.exports = {
     createPath,
     database,
     updateDatabase,
+    captializeName,
 };
