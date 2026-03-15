@@ -1,20 +1,12 @@
+const { registerSchema } = require("../schema");
 const { capitalizeName, sendResponse } = require("../helper/helper");
 
-const registerMiddleware = (req, res, next) => {
+const registerMiddleware = async (req, res, next) => {
     try {
-        const { body } = req;
-        if (
-            !body["name"] ||
-            !body["age"] ||
-            !body["gender"] ||
-            !body["login"] ||
-            !body["password"]
-        ) {
-            throw new Error("Please fill all fields!");
-        }
-        body.name = capitalizeName(body.name);
+        const data = await registerSchema.validateAsync(req.body);
+        data.name = capitalizeName(data.name);
 
-        res.locals.body = body;
+        res.locals.body = data;
         next();
     } catch (err) {
         const error = { error: err.message };

@@ -1,14 +1,11 @@
+const { loginSchema } = require("../schema");
 const { sendResponse } = require("../helper/helper");
 
-const loginMiddleware = (req, res, next) => {
+const loginMiddleware = async (req, res, next) => {
     try {
-        const { body } = req;
-        console.log(body)
-        if (!body["login"] || !body["password"]) {
-            throw new Error("Invalid username or password!");
-        }
-        res.locals.body = body;
-        next()
+        const data = await loginSchema.validateAsync(req.body);
+        res.locals.body = data;
+        next();
     } catch (err) {
         const error = { error: err.message };
         sendResponse(res, error, 400);
